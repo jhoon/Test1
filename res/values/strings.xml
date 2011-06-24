@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, ListadoActivity!</string>
+    <string name="app_name">Listado Test 1</string>
+    <string name="id">Id</string>
+    <string name="title">Título</string>
+    <string name="year">Año</string>
+    <string name="synopsis">Sinopsis</string>
+    <string name="director">Director</string>
+    <string name="genre">Género</string>
+    <string name="rating">Calificación</string>
+    <string name="cast">Actores</string>
+    <string name="premiere_date">Fecha de Estreno</string>
+    <string name="running_time">Duración</string>
+    <string name="detail_title">Detalle de la película</string>
+</resources>
