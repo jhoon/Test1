@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/header"/>
+    <ListView android:id="@+id/list_main_opt"
+    	android:contentDescription="@string/description_mainlist"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"/>
+    <TextView android:layout_width="fill_parent" 
+    		  android:text="@string/tab_activity" 
+    		  android:layout_height="wrap_content" 
+	    	  android:padding="10dp"
+    		  android:textAppearance="?android:attr/textAppearanceLarge" 
+    		  android:id="@+id/txtTabbed"/>
+    <TextView android:layout_width="fill_parent" 
+    		  android:text="@string/sql_activity" 
+    		  android:layout_height="wrap_content" 
+	    	  android:padding="10dp"
+    		  android:textAppearance="?android:attr/textAppearanceLarge" 
+    		  android:id="@+id/txtLocal" />
+</LinearLayout>

@@ -3,7 +3,10 @@ package com.jp.test;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,21 +14,25 @@ public class DetalleActivity extends Activity {
 	private static final String url = "http://restmocker.bitzeppelin.com/api/datatest/peliculas/$.json";
     private String mRowId;
     
-    
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.detalle);
         setTitle(R.string.detail_title);
         
         String strPelicula = "";
+        String strImgUrl = "";
         Bundle extras = getIntent().getExtras();
         mRowId = "";
         if (extras != null) {
             mRowId = extras.getString(ListadoActivity.KEY_ROWID);
-            strPelicula= extras.getString(ListadoActivity.KEY_TITLE);
+            strPelicula = extras.getString(ListadoActivity.KEY_TITLE);
+            strImgUrl = extras.getString(ListadoActivity.KEY_ICON);
         }
+        
+        // Se llenan todos los campos del detalle
         try{
-			JSONObject jsonPelicula = ListadoActivity.connect(DetalleActivity.url.replace("$", mRowId)).getJSONObject(0);
+        	new DetalleTask().execute(strImgUrl);
+        	JSONObject jsonPelicula = ListadoActivity.getJSONArrayFromURL(DetalleActivity.url.replace("$", mRowId)).getJSONObject(0);
 			TextView content;
 			content = (TextView)findViewById(R.id.txtTitle);
 			content.setText(strPelicula);
@@ -45,5 +52,32 @@ public class DetalleActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT);
 		}
 	}
-
+	
+	/**
+	 * se usa el DetalleTask para la imagen que debe ser cargada en el detalle
+	 */
+	private class DetalleTask extends AsyncTask<String, Void, Bitmap>{
+		ImageView iv;
+		
+		protected void onPreExecute(){
+        	iv = (ImageView)findViewById(R.id.imgPelicula);
+		}
+		
+		protected Bitmap doInBackground(String... params) {
+			Bitmap image = null;
+			try {
+				image = ListadoActivity.getBitmapFromUrl(params[0]);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return image;
+		}
+		
+		protected void onPostExecute(Bitmap image){
+			if (null != image)
+		        iv.setImageBitmap(image);
+		    else
+				Toast.makeText(getApplicationContext(), "Error de imagen!", Toast.LENGTH_SHORT);
+		}
+	}
 }

@@ -3,5 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="lib" path="lib/ormlite-android-4.20.jar" sourcepath="C:/Users/Jota_Pe/.m2/repository/com/j256/ormlite/ormlite-android/4.20/ormlite-android-4.20-sources.jar"/>
+	<classpathentry kind="lib" path="lib/ormlite-core-4.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

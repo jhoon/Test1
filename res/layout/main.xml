@@ -4,9 +4,32 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+    <include layout="@layout/header"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="center"
+	    android:id="@+id/layLoading">
+	    <TextView 
+		    android:id="@+id/txtErrMsg"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content"
+		    android:textAppearance="?android:attr/textAppearanceMedium" 
+		    android:text="@string/loading"
+		    android:paddingBottom="15dp"
+		    android:gravity="center_vertical|center_horizontal"
+	    	></TextView>
+	    <ProgressBar 
+	    	android:id="@+id/prgMain"
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+		    android:gravity="center_vertical|center_horizontal"
+	    	/>
+    </LinearLayout>
+	<ListView android:id="@+id/list_movies"
+    	android:contentDescription="@string/description_mainlist"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:visibility="gone"/>
 </LinearLayout>
