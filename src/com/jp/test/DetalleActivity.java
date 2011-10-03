@@ -2,7 +2,9 @@ package com.jp.test;
 
 import org.json.JSONObject;
 
-import android.app.Activity;
+import com.github.droidfu.activities.BetterDefaultActivity;
+import com.github.droidfu.widgets.WebImageView;
+
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DetalleActivity extends Activity {
+public class DetalleActivity extends BetterDefaultActivity {
 	private static final String url = "http://restmocker.bitzeppelin.com/api/datatest/peliculas/$.json";
     private String mRowId;
     
@@ -31,7 +33,10 @@ public class DetalleActivity extends Activity {
         
         // Se llenan todos los campos del detalle
         try{
-        	new DetalleTask().execute(strImgUrl);
+//        	new DetalleTask().execute(strImgUrl);
+        	WebImageView imgPelicula = (WebImageView)findViewById(R.id.imgPelicula);
+			imgPelicula.setImageUrl(strImgUrl);
+			imgPelicula.loadImage();
         	JSONObject jsonPelicula = ListadoActivity.getJSONArrayFromURL(DetalleActivity.url.replace("$", mRowId)).getJSONObject(0);
 			TextView content;
 			content = (TextView)findViewById(R.id.txtTitle);

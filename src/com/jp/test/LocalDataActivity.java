@@ -3,13 +3,12 @@ package com.jp.test;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.github.droidfu.activities.BetterDefaultActivity;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.jp.test.db.DatabaseHelper;
 import com.jp.test.db.Movies;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class LocalDataActivity extends Activity {
+public class LocalDataActivity extends BetterDefaultActivity{
 	
 //	public static void callMe(Context c, Integer clickCounterId) {
 //		Intent intent = new Intent(c, Movies.class);

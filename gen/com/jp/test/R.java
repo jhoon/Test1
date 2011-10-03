@@ -38,7 +38,6 @@ public final class R {
         public static final int mniRefreshLocal=0x7f080016;
         public static final int mniStop=0x7f080019;
         public static final int prgMain=0x7f080011;
-        public static final int prgProgress=0x01010000;
         public static final int txtCast=0x7f080005;
         public static final int txtDirector=0x7f080002;
         public static final int txtErrMsg=0x7f080010;

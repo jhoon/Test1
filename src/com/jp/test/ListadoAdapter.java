@@ -2,6 +2,8 @@ package com.jp.test;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.github.droidfu.widgets.WebImageView;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -52,25 +54,33 @@ public class ListadoAdapter extends BaseAdapter {
 		}
 		
 		TextView t = (TextView) v.findViewById(R.id.txtListTitle);
-		ImageView imgListPelicula = (ImageView) v.findViewById(R.id.imgListPelicula);
-		ProgressBar prgProgress = (ProgressBar) v.findViewById(R.id.prgProgress);
+		WebImageView imgListPelicula = (WebImageView) v.findViewById(R.id.imgListPelicula);
+//		ProgressBar prgProgress = (ProgressBar) v.findViewById(R.id.prgProgress);
 		
 		t.setText(mTitles[position]);
-		imgListPelicula.setTag(mIcons[position]);
-		prgProgress.setTag(position);
+//		imgListPelicula.setTag(mIcons[position]);
+//		if(imgListPelicula.isLoaded()){
+			imgListPelicula.setImageUrl(mIcons[position]);
+//			imgListPelicula.setDrawingCacheEnabled(true);
+//			imgListPelicula.getDraw
+//			imgListPelicula.setScaleType(ScaleType.FIT_CENTER);
+			imgListPelicula.loadImage();
+//		}
+//		prgProgress.setTag(position);
 		
 		// se ejecuta el AsyncTask para obtener los datos
-		if(!hmImages.containsKey((Integer)position)){
-			prgProgress.setVisibility(View.VISIBLE);
-			imgListPelicula.setVisibility(View.GONE);
-			new ListadoAdapterTask().execute(imgListPelicula,prgProgress);
-		} else {
-			imgListPelicula.setScaleType(ScaleType.FIT_CENTER);
-			imgListPelicula.setImageBitmap(hmImages.get((Integer)position));
-			prgProgress.setVisibility(View.GONE);
-			imgListPelicula.setVisibility(View.VISIBLE);
-		}
-		v.setContentDescription(mTitles[position]);
+//		if(!hmImages.containsKey((Integer)position)){
+////			prgProgress.setVisibility(View.VISIBLE);
+////			imgListPelicula.setVisibility(View.GONE);
+//			imgListPelicula.setImageUrl(mIcons[position]);
+////			new ListadoAdapterTask().execute(imgListPelicula,prgProgress);
+//		} else {
+//			imgListPelicula.setScaleType(ScaleType.FIT_CENTER);
+//			imgListPelicula.setImageBitmap(hmImages.get((Integer)position));
+//			prgProgress.setVisibility(View.GONE);
+//			imgListPelicula.setVisibility(View.VISIBLE);
+//		}
+//		v.setContentDescription(mTitles[position]);
 
 		return v;
 	}

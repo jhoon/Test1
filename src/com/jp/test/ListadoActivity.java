@@ -16,7 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
+import com.github.droidfu.activities.BetterDefaultActivity;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -39,7 +40,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ListadoActivity extends Activity {
+public class ListadoActivity extends BetterDefaultActivity {
 
 	public static final String KEY_ROWID = "_id";
 	public static final String KEY_ICON = "icon";
@@ -226,18 +227,18 @@ public class ListadoActivity extends Activity {
 		}
 	}
 	
-	private class GetImagesTask extends AsyncTask<Void, Void, Void>{
-
-		@Override
-		protected Void doInBackground(Void... params) {
-			return null;
-		}
-		
-		@Override
-		protected void onPostExecute(Void unused){
-			
-		}
-	}
+//	private class GetImagesTask extends AsyncTask<Void, Void, Void>{
+//
+//		@Override
+//		protected Void doInBackground(Void... params) {
+//			return null;
+//		}
+//		
+//		@Override
+//		protected void onPostExecute(Void unused){
+//			
+//		}
+//	}
 	
 	
 	/* métodos correspondientes al menú */

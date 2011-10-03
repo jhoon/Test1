@@ -1,8 +1,8 @@
 package com.jp.test;
 
+import com.github.droidfu.activities.BetterDefaultActivity;
 import com.jp.test.util.SessionHelper;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class MainOptionsActivity extends Activity {
+public class MainOptionsActivity extends BetterDefaultActivity {
 
 	@SuppressWarnings("unchecked")
 	public void onCreate(Bundle savedInstanceState){
